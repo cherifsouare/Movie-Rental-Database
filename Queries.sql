@@ -1,4 +1,4 @@
-Query 1- How many times preferred categories by families have been rented out?
+--Query 1- How many times preferred categories by families have been rented out?
 
 
 SELECT
@@ -36,7 +36,7 @@ ORDER BY
   
 
 
-Query 2- Comparison of the monthly performance of two stores based on the rental orders
+--Query 2- Comparison of the monthly performance of two stores based on the rental orders
 
 SELECT rental_month, rental_year, id_store, COUNT(*) AS rental_count
 FROM (SELECT DATE_PART('month',r.rental_date) AS rental_month, 
@@ -51,7 +51,7 @@ GROUP BY 1,2,3
 ORDER BY 4 DESC;
 
 
- Query 3- Who are the top 10 paying customers in 2007 and how much did they order and spend?
+ --Query 3- Who were the top 10 paying customers in 2007 and how much did they order and spend?
 
 /* This subquery join the customer table the payment table and return top 10 customers in 2007 based on spend*/
 
@@ -74,7 +74,7 @@ FROM sub1
 ORDER BY 2,1;
 
 
-Query 4- How are the films and categories are distributed in terms of rental duration?
+--Query 4- How are the films and categories are distributed in terms of rental duration?
 
 SELECT name, standard_quartile, COUNT(*) AS Count_total     
 FROM (SELECT f.title AS title, c.name AS name, f.rental_duration AS rental_duration, NTILE(4) OVER (PARTITION BY rental_duration ORDER BY rental_duration) AS standard_quartile
