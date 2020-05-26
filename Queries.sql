@@ -67,10 +67,12 @@ WITH sub1 AS (SELECT DATE_TRUNC('month',p.payment_date) AS payment_mon,
        ORDER BY 4 DESC
        LIMIT 10)
 
-/*this query return the top 10 customers IN 2007 and order by ascendiong name of the customer and then by month.
+/*this query return the top 10 customers IN 2007 and order by ascendiong name of the customer and then by month*/
+
 SELECT *
 FROM sub1
 ORDER BY 2,1;
+
 
 Query 4- How are the films and categories are distributed in terms of rental duration?
 
